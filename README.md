@@ -30,21 +30,24 @@ Full architecture diagram: [`5_Integration_Summary/architecture.md`](5_Integrati
 inventory-systems-and-integration/
 │
 ├── 1_SQL/
-│   ├── inventory_supply_schema.sql       ← Full DB schema + seed data
-│   └── inventory_business_queries.sql    ← 8 operational queries
+│   ├── inventory_supply_schema.sql        ← Full DB schema + seed data
+│   └── inventory_business_queries.sql     ← 8 operational queries
 │
 ├── 2_PowerBI/
-│   ├── powerbi_setup_guide.md        ← Connection + DAX measures
-│   └── screenshots/                  ← Dashboard visuals
+│   ├── powerbi_setup_guide.md             ← Connection + DAX measures
+│   └── screenshots/                       ← Dashboard visuals
 │
-├── 3_Automation_PAD/
-│   └── pad_flow_documentation.md     ← Full PAD flow (step-by-step)
+├── 3_Automation/
+│   ├── PAD/
+│   │   └── pad_flow_documentation.md      ← BPA: scheduled pipeline + email alert
+│   └── UiPath/
+│       └── uipath_bot_documentation.md    ← RPA: reads Excel, logs rows to text file
 │
 ├── 4_Python_Pipeline/
-│   └── inventory_pipeline.py         ← Automated reporting pipeline
+│   └── inventory_pipeline.py              ← Automated reporting pipeline
 │
 └── 5_Integration_Summary/
-    └── architecture.md               ← End-to-end system design
+    └── architecture.md                    ← End-to-end system design
 ```
 
 ---
