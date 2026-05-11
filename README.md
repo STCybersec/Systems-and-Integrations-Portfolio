@@ -29,24 +29,24 @@ Full architecture diagram: [`5_Integration_Summary/architecture.md`](5_Integrati
 ```
 inventory-systems-and-integration/
 │
-├── 1_SQL/
+├── 01.SQL/
 │   ├── inventory_supply_schema.sql        ← Full DB schema + seed data
 │   └── inventory_business_queries.sql     ← 8 operational queries
 │
-├── 2_PowerBI/
+├── 02.PowerBI/
 │   ├── powerbi_setup_guide.md             ← Connection + DAX measures
 │   └── screenshots/                       ← Dashboard visuals
 │
-├── 3_Automation/
+├── 03.Automation/
 │   ├── PAD/
 │   │   └── pad_flow_documentation.md      ← BPA: scheduled pipeline + email alert
 │   └── UiPath/
 │       └── uipath_bot_documentation.md    ← RPA: reads Excel, logs rows to text file
 │
-├── 4_Python_Pipeline/
+├── 04.Python_Pipeline/
 │   └── inventory_pipeline.py              ← Automated reporting pipeline
 │
-└── 5_Integration_Summary/
+└── 05.Integration_Summary/
     └── architecture.md                    ← End-to-end system design
 ```
 
@@ -69,7 +69,7 @@ inventory-systems-and-integration/
 | Unresolved system alerts | IT uptime monitoring |
 | Executive summary (1 query) | CEO reporting |
 
-📄 [`1_SQL/inventory_business_queries.sql`](1_SQL/inventory_business_queries.sql)
+📄 [`01.SQL/inventory_business_queries.sql`](1_SQL/inventory_business_queries.sql)
 
 ---
 
@@ -85,23 +85,52 @@ inventory-systems-and-integration/
 
 **DAX Measures:** Total Stock Value · Low Stock Items · Failed Deliveries · Total Units
 
-📄 [`2_PowerBI/powerbi_setup_guide.md`](2_PowerBI/powerbi_setup_guide.md)
+📄 [`02.PowerBI/powerbi_setup_guide.md`](2_PowerBI/powerbi_setup_guide.md)
 
 ---
 
-## 🤖 3 - Power Automate Desktop (BPA/RPA)
+## 🤖 3 - Automation (BPA + RPA)
 
-**Automated daily reporting flow:**
+### 3a - Power Automate Desktop (BPA)
 
+**Role:** Orchestrates the entire daily reporting pipeline from end to end.
+
+**Flow:**
 1. Triggers Python pipeline at 07:00 daily
-2. Validates report was generated
-3. Reads branch alert counts from Excel
-4. Sends conditional email to management with report attached
-5. Logs every run with timestamp
+2. Validates the Excel report was successfully generated
+3. Reads branch alert counts from the Branch Summary sheet
+4. Sends conditional email to management with report attached - only fires if low stock or failed deliveries are detected
+5. Logs every run with timestamp to a local log file
 
 > Zero manual steps. Zero licensing cost.
 
-📄 [`3_Automation_PAD/pad_flow_documentation.md`](3_Automation_PAD/pad_flow_documentation.md)
+📄 [`03.Automation/PAD/pad_flow_documentation.md`](3_Automation/PAD/pad_flow_documentation.md)
+
+---
+
+### 3b - UiPath Community Edition (RPA)
+
+**Role:** Executes a specific, repeatable UI-based task - simulating how a human would manually process a report row by row.
+
+**Bot Task:**
+1. Opens the generated Excel inventory report
+2. Reads each row from the Full Inventory sheet
+3. Evaluates the stock status column
+4. Logs every LOW STOCK row to a structured text file with branch, brand, quantity, and timestamp
+5. Closes the file and confirms completion
+
+**Why both PAD and UiPath?**
+
+| | PAD | UiPath |
+|---|---|---|
+| **Type** | BPA - full process orchestration | RPA - targeted task automation |
+| **Scope** | End-to-end pipeline management | Single repeatable UI task |
+| **Trigger** | Scheduled (daily 07:00) | Triggered by PAD after report is generated |
+| **Output** | Management email + run log | Low stock text log file |
+
+Together they form a complete automation layer - PAD runs the process, UiPath handles the detail work inside it.
+
+📄 [`03.Automation/UiPath/uipath_bot_documentation.md`](3_Automation/UiPath/uipath_bot_documentation.md)
 
 ---
 
@@ -122,7 +151,7 @@ pip install pandas openpyxl
 python inventory_pipeline.py
 ```
 
-📄 [`4_Python_Pipeline/inventory_pipeline.py`](4_Python_Pipeline/inventory_pipeline.py)
+📄 [`04.Python_Pipeline/inventory_pipeline.py`](4_Python_Pipeline/inventory_pipeline.py)
 
 ---
 
@@ -131,7 +160,7 @@ python inventory_pipeline.py
 End-to-end workflow connecting all tools into one operational system.  
 Designed to be **Azure-ready** (SQL → Azure SQL, PAD → Power Automate Cloud).
 
-📄 [`5_Integration_Summary/architecture.md`](5_Integration_Summary/architecture.md)
+📄 [`05.Integration_Summary/architecture.md`](5_Integration_Summary/architecture.md)
 
 ---
 
