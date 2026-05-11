@@ -175,7 +175,7 @@ Designed to be **Azure-ready** (SQL → Azure SQL, PAD → Power Automate Cloud)
 | RPA | ✅ PAD bot + UiPath (in progress) |
 | Continuous Monitoring | ✅ system_alerts table + query |
 | Stakeholder Communication | ✅ Automated management email |
-| Azure (Advantageous) | ✅ Architecture is Azure-ready |
+| Azure  | ✅ Architecture is Azure-ready |
 
 ---
 
