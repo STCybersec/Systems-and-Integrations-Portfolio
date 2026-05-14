@@ -95,21 +95,24 @@ JOIN dbo.branches b ON b.branch_id = d.branch_id
 JOIN dbo.products p ON p.product_id = d.product_id
 ORDER BY d.delivery_date DESC;
 
--- ============================================================
--- QUERY 7: Unresolved System Alerts Dashboard
--- Continuous Monitoring + Uptime Management
--- ============================================================
+-- QUERY 7: Continuous Monitoring - Delivery Exceptions
 SELECT
-    sa.alert_id,
-    sa.alert_type,
-    sa.description,
     b.branch_name,
-    sa.alert_date,
-    CASE WHEN sa.resolved = 0 THEN 'OPEN' ELSE 'RESOLVED' END AS status
-FROM dbo.system_alerts sa
-JOIN dbo.branches b ON b.branch_id = sa.branch_id
-WHERE sa.resolved = 0
-ORDER BY sa.alert_date ASC;
+    p.brand,
+    d.quantity,
+    d.delivery_date,
+    d.status,
+    CASE
+        WHEN d.status = 'Failed'     THEN 'URGENT - Investigate immediately'
+        WHEN d.status = 'Pending'    THEN 'MONITOR - Not yet dispatched'
+        WHEN d.status = 'In Transit' THEN 'ACTIVE - En route'
+    END AS action_required,
+    DATEDIFF(day, d.delivery_date, GETDATE()) AS days_outstanding
+FROM dbo.deliveries d
+JOIN dbo.branches b ON b.branch_id = d.branch_id
+JOIN dbo.products p ON p.product_id = d.product_id
+WHERE d.status != 'Delivered'
+ORDER BY days_outstanding DESC;
 
 -- ============================================================
 -- QUERY 8: Executive Summary View
