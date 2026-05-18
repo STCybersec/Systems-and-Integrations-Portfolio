@@ -7,7 +7,7 @@
 
 ---
 
-## What This Bot Does
+## ✔ What This Bot Does
 
 This bot performs targeted row-level automation - simulating how a human would
 manually scan through an inventory report and flag every low stock item.
@@ -17,7 +17,7 @@ repeatable task: read every product row, evaluate its status, and log exceptions
 
 ---
 
-## Activities Used - Step by Step
+## ✔ Activities Used - Step by Step
 
 | Step | Activity | Configuration | Output |
 |------|----------|--------------|--------|
@@ -31,25 +31,25 @@ repeatable task: read every product row, evaluate its status, and log exceptions
 
 ---
 
-## Key Decisions During Development
+## ⚖️ Key Decisions During Development
 
-### Why Assign before If
+### 🤔 Why Assign before If
 UiPath uses VB.NET expressions. Nested quotes inside a condition field cause
 syntax errors. Storing the value in a variable first removes the nesting problem.
-
-**Would not work:**
+ 
+**❌ Would not work:**
 I tried this:
 ```
 currentRow("stock_status").ToString.Contains("LOW STOCK")
 ```
 
-**Works correctly:**
+**✅ Works correctly:**
 ```
 stockStatus = currentRow("stock_status").ToString
 stockStatus.Contains("LOW STOCK")
 ```
 
-### Why string concatenation uses & not + (AI agent was instrumental in creating this string)
+### 💭 Why string concatenation uses & not + (AI agent was instrumental in creating this string)
 UiPath uses VB.NET - not Python or JavaScript. String joining uses & operator.
 
 ```
@@ -59,7 +59,7 @@ Wrong:   currentRow("branch_name").ToString + " | " + currentRow("brand").ToStri
 
 ---
 
-## Output - low_stock_log.txt
+## 💡 Output - low_stock_log.txt
 
 ```
 North Reef | ApexCell | Qty: 40 | LOW STOCK
@@ -69,6 +69,9 @@ Cape Town  | TradeMax | Qty: 20 | LOW STOCK
 Durban     | ApexCell | Qty: 35 | LOW STOCK
 Durban     | TradeMax | Qty: 15 | LOW STOCK
 ```
+
+<img width="526" height="202" alt="Low stocks" src="https://github.com/user-attachments/assets/2a0c005c-6b79-4177-8924-3a783c3ba311" />
+
 
 6 rows written. 12 rows scanned. 6 skipped (OK status). Zero errors.
 
