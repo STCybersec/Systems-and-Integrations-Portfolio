@@ -2,6 +2,10 @@
 CompanyConnect Supply Chain Data Pipeline
 Purpose: Automated data processing, flagging, and reporting
 Tools: Python, pandas, openpyxl
+
+# Production note: replace hardcoded data with pyodbc SQL connection
+# conn = pyodbc.connect("DRIVER={SQL Server};SERVER=localhost;DATABASE=inventory_supply;Trusted_Connection=yes;")
+# df = pd.read_sql("SELECT i.*, b.branch_name, p.brand, p.category, p.unit_cost_rand FROM inventory i JOIN branches b ON i.branch_id = b.branch_id JOIN products p ON p.product_id = i.product_id", conn)
 """
 
 import pandas as pd
