@@ -42,6 +42,8 @@ Every morning it:
 | 15 | Display message | On-screen confirmation showing alert content |
 | 16 | Write text to file | Appends timestamped entry to confirmation.txt |
 
+<img width="641" height="857" alt="pad_workflow_BPA" src="https://github.com/user-attachments/assets/a3bfe5d1-4686-4ae7-81d2-2c1451e260cb" />
+
 ---
 
 ## ⚙️ Critical Fixes done/encounted - What Made It Work
