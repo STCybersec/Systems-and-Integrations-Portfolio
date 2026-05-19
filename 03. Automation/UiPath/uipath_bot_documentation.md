@@ -29,6 +29,9 @@ repeatable task: read every product row, evaluate its status, and log exceptions
 | 6 | Append Line | File: low_stock_log.txt / Text: branch + brand + qty + status | Row written to file |
 | 7 | Message Box | Text: "Low stock scan complete. Results saved to low_stock_log.txt" | Confirmation popup |
 
+
+<img width="763" height="709" alt="UiPath_workflow_RPA" src="https://github.com/user-attachments/assets/69beddbc-a1be-4c95-b384-38885cfdee4f" />
+
 ---
 
 ## ⚖️ Key Decisions During Development
