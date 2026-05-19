@@ -8,9 +8,9 @@
 
 ## 📌 Project Overview
 
-This project demonstrates core systems and integration capabilities mapped to real multi-branch distribution operations. It simulates a distribution environment covering **MS SQL Server, Power BI, Python, Power Automate Desktop (PAD/BPA), and UiPath (RPA)** — connected into one automated pipeline.
+This project demonstrates core systems and integration capabilities mapped to real multi-branch distribution operations. It simulates a distribution environment covering **MS SQL Server, Power BI, Python, Power Automate Desktop (PAD/BPA), and UiPath (RPA)** - connected into one automated pipeline.
 
-> *"From raw database to automated executive email — zero manual steps."*
+> *"From raw database to automated executive email - zero manual steps."*
 
 ---
 
