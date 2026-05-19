@@ -90,7 +90,7 @@ Raw Data -> SQL Queries -> Operational Insights -> Management Decisions
 | 8 | Executive summary (1 query) | CEO/Exec reporting - full picture in a single result set |
 
 ### 🤔💭 Key Insight
-> *Stock value is directly proportional to quantity. Higher stock = lower sales velocity. Cape Town at R378K indicates stronger market movement than North Reef at R526K — assuming constant restocking conditions (ceteris paribus).*
+> *Stock value is directly proportional to quantity. Higher stock = lower sales velocity. Cape Town at R378K indicates stronger market movement than North Reef at R526K - assuming constant restocking conditions (ceteris paribus).*
 
 📄 [`01.SQL/inventory_business_queries.sql`](01.SQL/inventory_business_queries.sql)
 
