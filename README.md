@@ -173,7 +173,7 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 
 ---
 
-### 3a - Power Automate Desktop (BPA)
+### 3a - 🔵 Power Automate Desktop (BPA)
 
 **Role:** End-to-end business process orchestration - runs the entire daily pipeline automatically.
 
@@ -198,7 +198,7 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 | 15 | Display message | On-screen confirmation of alert content |
 | 16 | Write to confirmation.txt | Timestamped audit log of every run |
 
-**What this achieves:**
+**✅ What this achieves:**
 - Zero manual reporting
 - Management receives branch health email every morning
 - Every run logged with timestamp for audit purposes
@@ -227,7 +227,7 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 
 ---
 
-### 3b - UiPath Community Edition (RPA)
+### 3b - 🟠 UiPath Community Edition (RPA)
 
 **Role:** Targeted row-level automation - scans every inventory record and logs exceptions.
 
@@ -242,7 +242,7 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 | 5 | Append Line -> low_stock_log.txt | Writes flagged row: branch · brand · qty · status |
 | 6 | Message Box | Confirms scan completion |
 
-**What this achieves:**
+**✅ What this achieves:**
 - Individual product-level scanning - not just branch summaries
 - Structured log file for operations team review
 - Demonstrates row-by-row RPA capability distinct from PAD
@@ -257,21 +257,21 @@ Durban     | ApexCell | Qty: 35 | ⚠️ LOW STOCK
 Durban     | TradeMax | Qty: 15 | ⚠️ LOW STOCK
 ```
 
-**PAD vs UiPath - why both:**
+**⚔️ PAD vs UiPath - why both:**
 
 | | PAD | UiPath |
 |---|---|---|
 | **Type** | BPA - full process orchestration | RPA - targeted task automation |
 | **Scope** | End-to-end pipeline | Single repeatable task |
-| **Output** | Management email + audit log | Product-level exception log |
+| **Output** | Management email + audit log | Product-based exception log |
 | **Trigger** | Scheduled daily | Runs after PAD generates report |
 
 📸 *Screenshots:*
 
-![UiPath Canvas]
+UiPath Canvas
 <img width="1919" height="1020" alt="01 uipath_canvas" src="https://github.com/user-attachments/assets/fdb66e79-3923-4239-adc9-8ab87c490cd3" />
 
-![Low Stock Log]
+Low Stock Log
 <img width="1127" height="483" alt="02 low_stock_log" src="https://github.com/user-attachments/assets/09f0ad48-f03b-4174-afbf-844f41f961c2" />
 
 🎥 *Recording:*
@@ -285,10 +285,10 @@ Durban     | TradeMax | Qty: 15 | ⚠️ LOW STOCK
 
 **Role:** Data processing engine - transforms raw inventory data into structured Excel report.
 
-### Business Workflow
+### 💼 Business Workflow
 
 ```
-Raw Data → Python → Calculations → Flagging → 4-Sheet Excel Report
+Raw Data -> Python -> Calculations -> Flagging -> 4-Sheet Excel Report
 ```
 
 ### Step-by-Step
@@ -330,7 +330,7 @@ Raw Data → Python → Calculations → Flagging → 4-Sheet Excel Report
 | PAD | BPA | Orchestrate pipeline, alert, log |
 | UiPath | RPA | Row-level scanning, exception logging |
 
-### Azure-Ready Design
+### 🏢🌨️ Azure-Ready Design
 
 This architecture is designed to scale to cloud:
 
@@ -351,7 +351,7 @@ This architecture is designed to scale to cloud:
 |-------------|---------------|--------|
 | MS SQL Databases | Full schema + 8 business queries | ✅ |
 | Workflow Design | Documented 16-step PAD flow + 6-step UiPath bot | ✅ |
-| System Integration | SQL → Python → PAD → Email pipeline | ✅ |
+| System Integration | SQL -> Python -> PAD -> Email pipeline | ✅ |
 | Business Process Automation | PAD daily orchestration flow | ✅ |
 | Robotic Process Automation | UiPath inventory scanner | ✅ |
 | Continuous Monitoring | Delivery exceptions query + confirmation.txt audit log | ✅ |
@@ -363,11 +363,11 @@ This architecture is designed to scale to cloud:
 
 ## 🎓 About the Author
 
-BCom Information Technology Management — Mancosa (2026–2029)
+BCom Information Technology Management - Mancosa (2026–2029)
 Hybrid specialist in Cybersecurity, Data Analytics, and Automation.
 
 - 🛡️ [Cybersecurity Portfolio](https://github.com/STCybersec/Wazuh-Endpoint-Security)
 - 📊 [Data Analytics & BI Portfolio](https://github.com/STCybersec/Data-Analysis-BI---Portfolio)
 - 📧 thusisanelelele@gmail.com
 
-> *"Logs don't lie — data tells the truth."*
+> *"Logs don't lie - data tells the truth."*
