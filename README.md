@@ -185,10 +185,10 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 | 2 | Run Python script | Generates fresh Inventory Report.xlsx silently |
 | 3 | Wait 5 seconds | Ensures Python finishes writing before Excel opens |
 | 4 | Launch Excel | Opens Inventory Report.xlsx |
-| 5 | Set active worksheet → Branch Summary | Targets correct data sheet |
+| 5 | Set active worksheet -> Branch Summary | Targets correct data sheet |
 | 6 | Read all values from worksheet | Loads 3 rows × 4 columns into BranchData |
 | 7 | Close Excel | Releases file lock before email attachment |
-| 8 | Create list → AlertMessages | Empty container for alert strings |
+| 8 | Create list -> AlertMessages | Empty container for alert strings |
 | 9 | For Each branch in BranchData | Loops through all 3 branches |
 | 10 | If low_stock_items > 0 | Evaluates each branch for alerts |
 | 11 | Add to AlertMessages | Builds alert string per branch |
