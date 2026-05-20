@@ -16,7 +16,7 @@ This project demonstrates core systems and integration capabilities mapped to re
 
 ## 🏗️ End-to-End Architecture
 
-<img width="773" height="675" alt="end_to_end_systems_architecture" src="https://github.com/user-attachments/assets/a2036994-66c1-4906-9a48-3655ff408d20" />
+<img width="768" height="702" alt="end_to_end_systems_integration_architecture" src="https://github.com/user-attachments/assets/98b66236-504b-491e-99fe-d06b9b3cd44c" />
 
 
 ---
