@@ -16,7 +16,8 @@ This project demonstrates core systems and integration capabilities mapped to re
 
 ## 🏗️ End-to-End Architecture
 
-<img width="956" height="823" alt="end_to_end_flow" src="https://github.com/user-attachments/assets/aaa4ed9c-7d33-4973-ab5a-fd014a366721" />
+<img width="773" height="675" alt="end_to_end_systems_architecture" src="https://github.com/user-attachments/assets/a2036994-66c1-4906-9a48-3655ff408d20" />
+
 
 ---
 
@@ -82,15 +83,18 @@ Raw Data -> SQL Queries -> Operational Insights -> Management Decisions
 |------|-------|-----------------|
 | 1 | Product catalogue by price | Know your cost base |
 | 2 | Stock quantity per branch | Where is stock sitting |
-| 3 | Stock value in Rands per branch | Financial exposure - R1.35M total across 3 branches |
-| 4 | Low stock alerts (< 50 units) | 12 items need urgent action |
-| 5 | Brand performance across branches | Sales intelligence - TradeMax total value at R71,500 - indicating strongest sales velocity among brands |
+| 3 | Stock value in Rands per branch | Financial exposure - R675,150 total across 3 branches |
+| 4 | Low stock alerts (< 50 units) | 6 items need urgent action across 3 branches |
+| 5 | Brand performance across branches | Sales intelligence - TradeMax at R71,500 indicates strongest sales velocity |
 | 6 | Delivery status + action flags | Logistics monitoring - 1 failed, 2 in transit |
 | 7 | Delivery exceptions monitoring | Continuous monitoring - days outstanding per delivery |
 | 8 | Executive summary (1 query) | CEO/Exec reporting - full picture in a single result set |
 
 ### 🤔💭 Key Insight
-> *Stock value is directly proportional to quantity. Higher stock = lower sales velocity. Cape Town at R378K indicates stronger market movement than North Reef at R526K - assuming constant restocking conditions (ceteris paribus).*
+> *> Stock value is directly proportional to quantity. Higher stock = lower sales.
+> Cape Town at R189K indicates stronger market movement than North Reef at R263K -
+> assuming constant restocking conditions (ceteris paribus).
+> Average network stock value is R225,050.*
 
 📄 [`01.SQL/inventory_business_queries.sql`](01.SQL/inventory_business_queries.sql)
 
@@ -112,17 +116,17 @@ SQL Server → Power BI Desktop → 3-Page Dashboard → Executive Decisions
 
 | Visual | Insight Delivered |
 |--------|------------------|
-| KPI Card - Total Stock Value | R1,350,300 across all branches |
-| KPI Card - Total Units | 1,420 units in network |
-| KPI Card - Low Stock Items | 12 product lines below threshold |
+| KPI Card - Total Stock Value | R675,150 across all branches |
+| KPI Card - Total Units | 710 units in network |
+| KPI Card - Low Stock Items | 6 product lines below threshold |
 | KPI Card - Failed Deliveries | 1 delivery requires investigation |
-| Bar Chart - Branch Stock Value | North Reef R526K · Durban R446K · Cape Town R378K |
-| Line Chart + Average | Visual trend with R450,100 average benchmark |
-| Delivery Status Donut | 33% delivered · 33% in transit · 17% failed · 17% pending |
+| Bar Chart - Branch Stock Value | North Reef R263K - Durban R223K - Cape Town R189K |
+| Line Chart + Average | Visual trend with R225,050 average benchmark |
+| Delivery Status Donut | 33% delivered - 33% in transit - 17% failed - 17% pending |
 | City + Branch Slicers | Filter entire dashboard by location |
 
 📸 *Screenshot:*
-<img width="1425" height="798" alt="01  Executive Summary" src="https://github.com/user-attachments/assets/c0513112-35f4-4ab2-b2a1-268d6829a8c8" />
+<img width="1271" height="772" alt="01  Executive Summary" src="https://github.com/user-attachments/assets/d4ee0b3c-338c-4d0b-a84b-9bdd77e10418" />
 
 ---
 
@@ -133,13 +137,12 @@ SQL Server → Power BI Desktop → 3-Page Dashboard → Executive Decisions
 | Visual | Insight Delivered |
 |--------|------------------|
 | Grouped Bar Chart | Units per brand per branch - red bars = low stock |
-| Brand Details Table | Brand · Category · Total Units · Stock Value · % of Total |
-| City Bar Chart | Johannesburg 550 · Durban 470 · Cape Town 400 |
-| Category Slicer | Filter by Automotive · Premium · Export/Industrial |
+| Brand Details Table | Brand - Category - Total Units - Stock Value - % of Total |
+| City Bar Chart | Johannesburg 275 - Durban 235 - Cape Town 200 |
+| Category Slicer | Filter by Automotive - Premium - Export/Industrial |
 
 📸 *Screenshot:*
-<img width="1469" height="796" alt="02  Inventory Details" src="https://github.com/user-attachments/assets/2339e545-4c40-481a-93a2-1b0d95f8e67f" />
-
+<img width="1340" height="784" alt="02  Inventory Details" src="https://github.com/user-attachments/assets/a151e772-73e0-4e47-b6ef-5e76aaf01e2e" />
 
 ---
 
@@ -154,7 +157,7 @@ SQL Server → Power BI Desktop → 3-Page Dashboard → Executive Decisions
 | Delivery Table | Branch · Brand · Status · Action Flag per delivery |
 
 📸 *Screenshot:*
-<img width="1553" height="799" alt="03  Delivery Monitor" src="https://github.com/user-attachments/assets/d5c1c479-21c7-4938-ae63-8d4a34dde230" />
+<img width="1373" height="789" alt="03  Delivery Monitor" src="https://github.com/user-attachments/assets/c084d288-f7e1-454c-841d-8a2239d4face" />
 
 
 📂 [`02.PowerBI/Real-time-interactive-dashboard/`](02.PowerBI/Real-time-interactive-dashboard/)
@@ -239,7 +242,7 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 | 2 | For Each Row | Iterates through all 12 inventory records |
 | 3 | Assign stockStatus | Extracts stock_status value from current row |
 | 4 | If stockStatus Contains "LOW STOCK" | Evaluates each row against threshold |
-| 5 | Append Line -> low_stock_log.txt | Writes flagged row: branch · brand · qty · status |
+| 5 | Append Line - low_stock_log.txt | Writes flagged row: branch - brand - qty - status |
 | 6 | Message Box | Confirms scan completion |
 
 **✅ What this achieves:**
@@ -291,18 +294,19 @@ Low Stock Log
 Raw Data -> Python -> Calculations -> Flagging -> 4-Sheet Excel Report
 ```
 
-### Step-by-Step
+## Step-by-Step
 
 | Step | What Happens | Output |
 |------|-------------|--------|
-| 1 | Load inventory data | 12 rows × 6 columns DataFrame |
-| 2 | Calculate stock value | quantity × unit_cost_rand per row |
-| 3 | Flag low stock items | ⚠️ LOW STOCK if quantity < 50 |
-| 4 | Branch summary | Total units, total value, low stock count per branch |
-| 5 | Brand summary | Total units, total value per brand across all branches |
-| 6 | Export to Excel | 4-sheet workbook saved to shared path |
+| 1 | Connect to SQL Server - inventory_supply | Live data connection via pyodbc |
+| 2 | Query inventory, branches, products tables | 12 rows x 6 columns DataFrame |
+| 3 | Calculate stock value | quantity x unit_cost_rand per row |
+| 4 | Flag low stock items | LOW STOCK if quantity < 50 |
+| 5 | Branch summary | Total units, total value, low stock count per branch |
+| 6 | Brand summary | Total units, total value per brand across all branches |
+| 7 | Export to Excel | 4-sheet workbook saved to shared path |
 
-**Output Sheets:**
+## Output Sheets
 
 | Sheet | Contents |
 |-------|----------|
@@ -310,6 +314,7 @@ Raw Data -> Python -> Calculations -> Flagging -> 4-Sheet Excel Report
 | Branch Summary | 3 branches - units, value, low stock count |
 | Brand Performance | 4 brands - total units and total value |
 | Low Stock Alerts | Only the 6 flagged rows for urgent review |
+
 
 
 📄 [`View Inventory_Pipeline`](04.Python_Pipeline/inventory_pipeline.py)
