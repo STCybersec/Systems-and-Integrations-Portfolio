@@ -160,7 +160,7 @@ SQL Server → Power BI Desktop → 3-Page Dashboard → Executive Decisions
 <img width="1373" height="789" alt="03  Delivery Monitor" src="https://github.com/user-attachments/assets/c084d288-f7e1-454c-841d-8a2239d4face" />
 
 
-📂 [`02.PowerBI/Real-time-interactive-dashboard/`](02.PowerBI/Real-time-interactive-dashboard/)
+📂 [`02.PowerBI/Real-time-interactive-dashboard/`](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/blob/main/02.PowerBI/real%20time%20interactive%20dashboard/Inventory_Supply_Analytics.pbix)
 
 ---
 
@@ -224,9 +224,9 @@ Python generates report → PAD orchestrates pipeline → Email sent to manageme
 ```
 2026/05/14 14:02:28 - Pipeline completed. Alerts sent: 3
 ```
-[📄 View confirmation.txt](03.Automation/PAD/evidence/confirmation.txt)
+[📄 View confirmation.txt](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/blob/main/03.%20Automation/PAD%20-%20Power%20Automate%20Desktop/evidence/confirmation.txt)
 
-📄 [`View PAD Documentation`](03.Automation/PAD/pad_flow_documentation.md)
+📄 [`View PAD Documentation`](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/blob/main/03.%20Automation/PAD%20-%20Power%20Automate%20Desktop/PAD_flow_documentation.md)
 
 ---
 
@@ -280,7 +280,7 @@ Low Stock Log
 🎥 *Recording:*
 [▶ Watch UiPath Bot Demo](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/issues/3)
 
-📄 [`View UiPath Documentation`](03.Automation/UiPath/uipath_bot_documentation.md)
+📄 [`View UiPath Documentation`](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/blob/main/03.%20Automation/UiPath/uipath_bot_documentation.md)
 
 ---
 
@@ -317,7 +317,7 @@ Raw Data -> Python -> Calculations -> Flagging -> 4-Sheet Excel Report
 
 
 
-📄 [`View Inventory_Pipeline`](04.Python_Pipeline/inventory_pipeline.py)
+📄 [`View Inventory_Pipeline`](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/blob/main/04.%20Python%20Pipeline/inventory_pipeline.py)
 
 ---
 
@@ -346,7 +346,7 @@ This architecture is designed to scale to cloud:
 | Python (local) | Azure Functions |
 | Power BI Desktop | Power BI Service |
 
-📄 [`05.Integration_Summary/architecture.md`](05.Integration_Summary/architecture.md)
+📄 [`05.Integration_Summary/architecture.md`](https://github.com/STCybersec/Systems-and-Integrations-Portfolio/blob/main/05.%20Integration%20Summary/architecture.md)
 
 ---
 
