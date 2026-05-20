@@ -7,7 +7,7 @@
 
 ## Architecture
 
-<img width="773" height="675" alt="end_to_end_systems_architecture" src="https://github.com/user-attachments/assets/0d4b0248-e721-4761-b6ed-347efa0f1d1b" />
+<img width="768" height="702" alt="end_to_end_systems_integration_architecture" src="https://github.com/user-attachments/assets/d10f4f73-494d-43f9-9193-7492a28b8304" />
 
 ---
 
